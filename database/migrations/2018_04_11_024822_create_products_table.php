@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('price');
             $table->string('cost');
             $table->string('ship_cost');
-            $table->text('options');
+            $table->text('options')->nullable();
             $table->timestamps();
         });
     }
