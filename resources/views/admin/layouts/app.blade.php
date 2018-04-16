@@ -78,7 +78,7 @@
             <div id="page-wrapper">
                 <div class="container-fluid">
                     @if(Session::has('success-message') || Session::has('error-message'))
-                        <div id="redirect_alert" class="alert @if(Session::has('success-message')) alert-success @elseif(Session::has('error-message')) alert-danger @endif fade in alert-dismissable">
+                        <div id="redirect_alert" class="alert @if(Session::has('success-message')) alert-success @elseif(Session::has('error-message')) alert-danger @endif">
                             <a href="javascript:void(0);" onclick="$(this).parent().remove();" class="close" title="close">×</a>
                             <strong>@if(Session::has('success-message')) Success! @elseif(Session::has('error-message')) Error! @endif </strong>@if(Session::has('success-message')) {{ Session::pull('success-message') }} @elseif(Session::has('error-message')) {{ Session::pull('error-message') }} @endif
                         </div>

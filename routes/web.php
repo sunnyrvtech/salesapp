@@ -25,5 +25,6 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function () {
    Route::get('/', 'Admin\IndexController@index')->name('admin');
    Route::resource('users', 'Admin\UserController');
    Route::post('users/status', 'Admin\UserController@userStatus')->name('users-status');
-   Route::resource('products', 'Admin\ProductController');
+   Route::get('products', 'Admin\ProductController@index')->name('products.index');
+   Route::post('products', 'Admin\ProductController@import')->name('products.import');
 });

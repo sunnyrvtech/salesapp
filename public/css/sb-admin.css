@@ -6,14 +6,13 @@ html {
 body {
   overflow-x: hidden;
 }
-#page-wrapper { width: 100%;padding: 20px; }
-
+#page-wrapper { width: 100%;padding: 20px 20px 76px 20px; }
 body.sticky-footer {
   margin-bottom: 56px;
 }
 
 body.sticky-footer .content-wrapper {
-  min-height: calc(100vh - 56px - 56px);
+  min-height: calc(100vh - 56px);
 }
 
 body.fixed-nav {
@@ -457,7 +456,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 }
 
 footer.sticky-footer {
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
   width: 100%;
