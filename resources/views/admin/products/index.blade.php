@@ -4,6 +4,8 @@
     <div class="col-md-6">
         <a class="browse btn btn-primary" type="button"><i class="glyphicon glyphicon-import"></i>Import Product</a>
         <input style="display: none;" name="productCsv" type="file">
+        <a class="browse btn btn-danger" type="button"><i class="glyphicon glyphicon-import"></i>Delete Product</a>
+        <input style="display: none;" name="deleteCsv" type="file">
     </div>
 </div>
 <div class="row">
@@ -34,7 +36,7 @@
             serverSide: true,
             ajax: "{{ route('products.index') }}",
             columns: [
-                {data: 'id', name: 'id'},
+                {data: 'DT_Row_Index', name: 'id'},
                 {data: 'name', name: 'name'},
                 {data: 'sku', name: 'sku'},
                 {data: 'brand', name: 'brand'},
@@ -58,6 +60,28 @@
             formData.append('productCsv', $(this)[0].files[0]);
             $.ajax({
                 url: "{{ route('products.import') }}",
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    $("#loaderOverlay").hide();
+                    window.location.reload();
+                },
+                error: function (error) {
+                    $("#loaderOverlay").hide();
+                    alert('Something went wrong,please try again later!');
+                }
+
+            });
+            return false;
+        });
+        $(document).on('change', 'input[name=deleteCsv]', function (e) {
+            $("#loaderOverlay").show();
+            var formData = new FormData();
+            formData.append('deleteCsv', $(this)[0].files[0]);
+            $.ajax({
+                url: "{{ route('products.delete') }}",
                 type: 'POST',
                 data: formData,
                 contentType: false,

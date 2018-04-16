@@ -27,4 +27,5 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function () {
    Route::post('users/status', 'Admin\UserController@userStatus')->name('users-status');
    Route::get('products', 'Admin\ProductController@index')->name('products.index');
    Route::post('products', 'Admin\ProductController@import')->name('products.import');
+   Route::post('products/delete', 'Admin\ProductController@deleteProducts')->name('products.delete');
 });
