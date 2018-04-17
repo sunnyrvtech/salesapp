@@ -20,6 +20,18 @@
         <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
     </head>
     <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+        <div id="loaderOverlay">
+            <div class="loader">
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+            </div>
+        </div>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
             <a class="navbar-brand" href="{{ url('/') }}">Admin</a>
