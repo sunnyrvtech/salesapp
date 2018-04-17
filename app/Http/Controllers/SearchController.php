@@ -31,15 +31,17 @@ class SearchController extends Controller
         if(isset($keyword) OR $keyword!=""){
         $products = Product::where('sku','LIKE',"%{$keyword}%")
                      ->orWhere("name", "LIKE", "%{$keyword}%")->paginate(10);  
+
+        $brands = Product::select('brand')->distinct()->get();             
         if (count ( $products ) > 0){
-             return view ( 'home' )->withDetails($products)->withQuery ($keyword);
+             return view ( 'home' )->withDetails($products)->withQuery($keyword)->withBrands($brands);
         }else{
              return view ( 'home' )->withMessage('No Details found. Try to search again !');
         }
       }else{
             return view ( 'home' )->withMessage('Please enter Keyword');
       }
-                   
+      
     }
       public function view()
     {

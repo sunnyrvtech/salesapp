@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/search', 'SearchController@index')->name('search');
 Route::get('/view', 'SearchController@view')->name('details');
+Route::get('/brand', 'SearchController@getBrands')->name('brands');
 
 Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function () {
    Route::get('/', 'Admin\IndexController@index')->name('admin');

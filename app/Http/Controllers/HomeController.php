@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
 
 class HomeController extends Controller
 {
@@ -22,7 +23,12 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {  
+        $brands = Product::select('brand')->distinct()->get();
+        if(count($brands)>0){
+        return view('home')->withBrands($brands);
+       }else{
         return view('home');
+       }
     }
 }

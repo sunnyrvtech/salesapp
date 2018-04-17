@@ -50,6 +50,16 @@
                 @endif
                 @endif
             </div>
+            @if(isset($brands))
+              <div class="brandshead text-center"><h2>Available Brands</h2></div>
+              <div class="brandsbody">
+                <ul>
+             @foreach($brands as $brand)
+               <li>{{$brand->brand}}</li>
+             @endforeach
+               </ul>
+              </div>
+            @endif
         </div>
     </div>
 </div>
